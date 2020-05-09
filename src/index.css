@@ -1,13 +1,44 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.img1 {
+  background: url('img/char/barnacles.png');
+}
+.img2 {
+  background: url('img/char/dashi.png');
+}
+.img3 {
+  background: url('img/char/inkling.png');
+}
+.img4 {
+  background: url('img/char/kwazii.png');
+}
+.img5 {
+  background: url('img/char/peso.png');
+}
+.img6 {
+  background: url('img/char/shellington.png');
+}
+.img7 {
+  background: url('img/char/tunip.png');
+}
+.img8 {
+  background: url('img/char/tweak.png');
 }
