@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/mastermind/static/css/main.1431111b.chunk.css",
+    "main.js": "/mastermind/static/js/main.7e22cd6f.chunk.js",
+    "main.js.map": "/mastermind/static/js/main.7e22cd6f.chunk.js.map",
+    "runtime-main.js": "/mastermind/static/js/runtime-main.243d0c37.js",
+    "runtime-main.js.map": "/mastermind/static/js/runtime-main.243d0c37.js.map",
+    "static/js/2.4d1d23f6.chunk.js": "/mastermind/static/js/2.4d1d23f6.chunk.js",
+    "static/js/2.4d1d23f6.chunk.js.map": "/mastermind/static/js/2.4d1d23f6.chunk.js.map",
+    "index.html": "/mastermind/index.html",
+    "precache-manifest.e6ee1a153eecc9a672ded4b992a9fb57.js": "/mastermind/precache-manifest.e6ee1a153eecc9a672ded4b992a9fb57.js",
+    "service-worker.js": "/mastermind/service-worker.js",
+    "static/css/main.1431111b.chunk.css.map": "/mastermind/static/css/main.1431111b.chunk.css.map",
+    "static/js/2.4d1d23f6.chunk.js.LICENSE.txt": "/mastermind/static/js/2.4d1d23f6.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/mastermind/static/media/tweak.29b0fa3b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.243d0c37.js",
+    "static/js/2.4d1d23f6.chunk.js",
+    "static/css/main.1431111b.chunk.css",
+    "static/js/main.7e22cd6f.chunk.js"
+  ]
+}
