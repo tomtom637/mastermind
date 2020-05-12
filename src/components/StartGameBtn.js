@@ -17,8 +17,6 @@ function StartGameBtn(props) {
     setStarted,
     setNumGuess,
     setGuesses,
-    setCurrentGuess,
-    setGuessView,
     setAnswers,
     setWon,
   } = props;
@@ -28,8 +26,6 @@ function StartGameBtn(props) {
     setStarted(true);
     setNumGuess([]);
     setGuesses([]);
-    setCurrentGuess([]);
-    setGuessView([]);
     setAnswers([]);
     setWon(false);
   };

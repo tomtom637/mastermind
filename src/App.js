@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { animateScroll } from 'react-scroll';
-import { Scrollbars } from 'react-custom-scrollbars';
 import './App.css';
 import StartGameBtn from './components/StartGameBtn.js';
+import uniqid from 'uniqid';
 
 const GameWrapper = styled.div`
   display: flex;
@@ -41,8 +41,8 @@ const GameWrapper = styled.div`
     }
   }
   .game-body {
-    width: 100%;
     display: flex;
+    width: 100%;
     overflow-y: scroll;
     flex-grow: 1;
     -ms-overflow-style: none;
@@ -89,16 +89,16 @@ const GameWrapper = styled.div`
     }
   }
   .box {
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background-size: cover;
-    transform: scale(1.3);
+    transform: scale(3);
   }
   @media (min-width: 500px) {
     .box {
-      width: 75px;
-      height: 75px;
+      width: 20px;
+      height: 20px;
     }
   }
   .box-small {
@@ -133,51 +133,43 @@ const Wrapper = styled.div`
 
 function App() {
   const [started, setStarted] = useState(false);
-  const [mm, setMm] = useState('');
-  const [currentGuess, setCurrentGuess] = useState([]);
+  const [mm, setMm] = useState(null);
   const [numGuess, setNumGuess] = useState([]);
-  const [guessView, setGuessView] = useState([]);
   const [guesses, setGuesses] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [won, setWon] = useState(false);
 
+  // gives a score after a line is completed
   useEffect(() => {
-    if (started) {
-      if (currentGuess.length === mm.secret.length) {
-        let [black, white] = mm.play(numGuess);
-        if (black === mm.secret.length) {
-          setWon(true);
-        }
-        let answerView = [];
-        for (let i = 0; i < black; i++) {
-          answerView.push('box-small box-small--black');
-        }
-        for (let i = 0; i < white; i++) {
-          answerView.push('box-small box-small--white');
-        }
-        for (let i = 0; i < mm.secret.length - black - white; i++) {
-          answerView.push('box-small');
-        }
-        setAnswers([...answers, [...answerView]]);
-        setGuesses([...guesses, [...currentGuess]]);
-        setCurrentGuess([]);
-        setNumGuess([]);
+    if (started && numGuess.length === mm.secret.length) {
+      let checkGuess = [...numGuess];
+      let [black, white] = mm.play(checkGuess);
+      if (black === mm.secret.length) {
+        setWon(true);
       }
+      let answerView = [];
+      for (let i = 0; i < black; i++) {
+        answerView.push('box-small box-small--black');
+      }
+      for (let i = 0; i < white; i++) {
+        answerView.push('box-small box-small--white');
+      }
+      for (let i = 0; i < mm.secret.length - black - white; i++) {
+        answerView.push('box-small');
+      }
+      setAnswers([...answers, [...answerView]]);
     }
-  }, [answers, currentGuess, guesses, numGuess, mm, started]);
+  }, [answers, numGuess, mm, started]);
 
-  // Sets the className of the currentGuess
+  // re-initializes the current guesses after a line is completed
   useEffect(() => {
-    if (started) {
-      setGuessView(() => {
-        let dummyAnswer = [];
-        for (let i = 0; i < mm.secret.length - currentGuess.length; i++) {
-          dummyAnswer = [...dummyAnswer, `box-small`];
-        }
-        return [...currentGuess, ...dummyAnswer];
+    if (started && numGuess.length === mm.secret.length) {
+      setGuesses(prev => {
+        return [...prev, [...numGuess]];
       });
+      setNumGuess([]);
     }
-  }, [currentGuess, started, mm]);
+  }, [numGuess, started, guesses, mm]);
 
   // scroll to bottom
   useEffect(() => {
@@ -197,16 +189,14 @@ function App() {
           setStarted={setStarted}
           setNumGuess={setNumGuess}
           setGuesses={setGuesses}
-          setCurrentGuess={setCurrentGuess}
-          setGuessView={setGuessView}
           setAnswers={setAnswers}
           setWon={setWon}
         />
         <div className="secret">
           {won && (
             <div className="row" style={{ background: 'rgba(0, 0, 0, 0.2)' }}>
-              {mm.secret.map((val, index) => {
-                return <div className={`box img${val}`} key={index} />;
+              {mm.secret.map(val => {
+                return <div className={`box img${val}`} key={uniqid()} />;
               })}
             </div>
           )}
@@ -215,39 +205,47 @@ function App() {
           {!won ? (
             <>
               <div className="guesses">
-                {guesses.length > 0 &&
-                  guesses.map((guess, index) => {
-                    return (
-                      <div className="row" key={index}>
-                        {guess.map((singleGuess, singleIndex) => {
-                          return (
-                            <div className={singleGuess} key={singleIndex} />
-                          );
-                        })}
-                      </div>
-                    );
-                  })}
-                {started && !won && (
-                  <div className="row">
-                    {guessView.map((guess, index) => {
-                      return <div className={guess} key={index} />;
-                    })}
-                  </div>
-                )}
-              </div>
-              <div className="answers">
-                {answers.map((answer, index) => {
+                {guesses.map(guess => {
                   return (
-                    <div className="row" key={index}>
-                      {answer.map((singleAnswer, singleIndex) => {
+                    <div className="row" key={uniqid()}>
+                      {guess.map(singleGuess => {
                         return (
-                          <div className={singleAnswer} key={singleIndex} />
+                          <div
+                            className={`box img${singleGuess}`}
+                            key={uniqid()}
+                          />
                         );
                       })}
                     </div>
                   );
                 })}
-                {started && !won && <div className="row" />}
+                <div className="row">
+                  {started &&
+                    mm.secret.map((guess, index) => {
+                      return (
+                        <div
+                          className={
+                            numGuess[index]
+                              ? `box img${numGuess[index]}`
+                              : 'box-small'
+                          }
+                          key={uniqid()}
+                        />
+                      );
+                    })}
+                </div>
+              </div>
+              <div className="answers">
+                {answers.map(answer => {
+                  return (
+                    <div className="row" key={uniqid()}>
+                      {answer.map(singleAnswer => {
+                        return <div className={singleAnswer} key={uniqid()} />;
+                      })}
+                    </div>
+                  );
+                })}
+                {!won && <div className="row" />}
               </div>
             </>
           ) : (
@@ -260,15 +258,12 @@ function App() {
         <div className="secret-input">
           <div className="row">
             {started &&
-              mm.colors.map((val, index) => {
+              mm.colors.map(val => {
                 return (
                   <div
                     className={`box img${val}`}
-                    key={index}
+                    key={uniqid()}
                     onClick={() => {
-                      setCurrentGuess(prev => {
-                        return [...prev, `box img${val}`];
-                      });
                       setNumGuess(prev => {
                         return [...prev, val];
                       });
