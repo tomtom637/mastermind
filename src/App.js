@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { animateScroll } from 'react-scroll';
 import './App.css';
-import StartGameBtn from './components/StartGameBtn.js';
+import StartGameBtn from './components/StartGameBtn';
+import Secret from './components/Secret';
+import Guesses from './components/Guesses';
+import Answers from './components/Answers';
+import SecretInput from './components/SecretInput';
 import uniqid from 'uniqid';
 
 const GameWrapper = styled.div`
@@ -20,12 +24,6 @@ const GameWrapper = styled.div`
   border-radius: 5px;
   max-width: 650px;
   margin: 0 auto;
-  .secret {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-  }
   .congratulations {
     margin: auto;
     text-align: center;
@@ -48,26 +46,6 @@ const GameWrapper = styled.div`
     -ms-overflow-style: none;
     &::-webkit-scrollbar {
       display: none;
-    }
-  }
-  .guesses {
-    width: 65%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .answers {
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  @media (min-width: 500px) {
-    .guesses {
-      width: 75%;
-    }
-    .answers {
-      width: 25%;
     }
   }
   .row {
@@ -113,9 +91,6 @@ const GameWrapper = styled.div`
   }
   .box-small--black {
     background: #111;
-  }
-  .secret-input {
-    background: rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -192,61 +167,17 @@ function App() {
           setAnswers={setAnswers}
           setWon={setWon}
         />
-        <div className="secret">
-          {won && (
-            <div className="row" style={{ background: 'rgba(0, 0, 0, 0.2)' }}>
-              {mm.secret.map(val => {
-                return <div className={`box img${val}`} key={uniqid()} />;
-              })}
-            </div>
-          )}
-        </div>
+        <Secret won={won} mm={mm} />
         <div className="game-body" id="game-body">
           {!won ? (
             <>
-              <div className="guesses">
-                {guesses.map(guess => {
-                  return (
-                    <div className="row" key={uniqid()}>
-                      {guess.map(singleGuess => {
-                        return (
-                          <div
-                            className={`box img${singleGuess}`}
-                            key={uniqid()}
-                          />
-                        );
-                      })}
-                    </div>
-                  );
-                })}
-                <div className="row">
-                  {started &&
-                    mm.secret.map((guess, index) => {
-                      return (
-                        <div
-                          className={
-                            numGuess[index]
-                              ? `box img${numGuess[index]}`
-                              : 'box-small'
-                          }
-                          key={uniqid()}
-                        />
-                      );
-                    })}
-                </div>
-              </div>
-              <div className="answers">
-                {answers.map(answer => {
-                  return (
-                    <div className="row" key={uniqid()}>
-                      {answer.map(singleAnswer => {
-                        return <div className={singleAnswer} key={uniqid()} />;
-                      })}
-                    </div>
-                  );
-                })}
-                {!won && <div className="row" />}
-              </div>
+              <Guesses
+                guesses={guesses}
+                started={started}
+                mm={mm}
+                numGuess={numGuess}
+              />
+              <Answers answers={answers} won={won} />
             </>
           ) : (
             <div className="congratulations">
@@ -255,24 +186,7 @@ function App() {
             </div>
           )}
         </div>
-        <div className="secret-input">
-          <div className="row">
-            {started &&
-              mm.colors.map(val => {
-                return (
-                  <div
-                    className={`box img${val}`}
-                    key={uniqid()}
-                    onClick={() => {
-                      setNumGuess(prev => {
-                        return [...prev, val];
-                      });
-                    }}
-                  />
-                );
-              })}
-          </div>
-        </div>
+        <SecretInput started={started} mm={mm} setNumGuess={setNumGuess} />
       </GameWrapper>
     </Wrapper>
   );
