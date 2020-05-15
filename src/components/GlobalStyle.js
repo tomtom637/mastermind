@@ -24,8 +24,8 @@ body {
     }
   }
   .row {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 18px;
+    margin-bottom: 18px;
     width: 100%;
     height: 35px;
     min-height: 35px;
