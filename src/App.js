@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import GlobalStyle from './components/GlobalStyle';
 import styled from 'styled-components';
 import { animateScroll } from 'react-scroll';
-import './App.css';
 import StartGameBtn from './components/StartGameBtn';
 import Secret from './components/Secret';
 import Guesses from './components/Guesses';
 import Answers from './components/Answers';
 import SecretInput from './components/SecretInput';
-import uniqid from 'uniqid';
 
 const GameWrapper = styled.div`
   display: flex;
@@ -22,7 +21,7 @@ const GameWrapper = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 5px;
-  max-width: 650px;
+  max-width: 500px;
   margin: 0 auto;
   .congratulations {
     margin: auto;
@@ -37,60 +36,6 @@ const GameWrapper = styled.div`
       width: 100%;
       margin-top: 50px;
     }
-  }
-  .game-body {
-    display: flex;
-    width: 100%;
-    overflow-y: scroll;
-    flex-grow: 1;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-  .row {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 100%;
-    height: 45px;
-    min-height: 45px;
-    background: rgba(255, 255, 255, 0.2);
-    display: flex;
-    justify-content: space-between;
-    padding: 0 25px;
-    align-items: center;
-  }
-  @media (min-width: 500px) {
-    .row {
-      margin-top: 35px;
-      margin-bottom: 35px;
-    }
-  }
-  .box {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-size: cover;
-    transform: scale(3);
-  }
-  @media (min-width: 500px) {
-    .box {
-      width: 20px;
-      height: 20px;
-    }
-  }
-  .box-small {
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-  }
-  .box-small--white {
-    background: #ddd;
-  }
-  .box-small--black {
-    background: #111;
   }
 `;
 
@@ -158,6 +103,7 @@ function App() {
 
   return (
     <Wrapper className="App">
+      <GlobalStyle />
       <GameWrapper className="game">
         <StartGameBtn
           setMm={setMm}

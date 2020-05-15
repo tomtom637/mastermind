@@ -22,7 +22,7 @@ function StartGameBtn(props) {
   } = props;
 
   const handleClick = () => {
-    setMm(new mastermind(['8', '2', '4', '7'], 3));
+    setMm(new mastermind(['8', '2', '4', '7', '1', '3'], 4));
     setStarted(true);
     setNumGuess([]);
     setGuesses([]);
