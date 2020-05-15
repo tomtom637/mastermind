@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c0e9047a526c2fdd62a16b9c0550e866",
+    "revision": "fe3d366450e23ace017813fc8ab62ee9",
     "url": "/mastermind/index.html"
   },
   {
-    "revision": "20b47f78174a505e3f00",
-    "url": "/mastermind/static/css/main.28c0211f.chunk.css"
+    "revision": "26fdec998a53c743240f",
+    "url": "/mastermind/static/css/main.fc94d13f.chunk.css"
   },
   {
     "revision": "c7a125bb621e5f475084",
@@ -16,12 +16,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mastermind/static/js/2.50940f97.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "20b47f78174a505e3f00",
-    "url": "/mastermind/static/js/main.28bef941.chunk.js"
+    "revision": "26fdec998a53c743240f",
+    "url": "/mastermind/static/js/main.fecc07c1.chunk.js"
   },
   {
     "revision": "c3cab64ceb392b02909a",
     "url": "/mastermind/static/js/runtime-main.243d0c37.js"
+  },
+  {
+    "revision": "229eb3f425da27c02d2f5bf47598033e",
+    "url": "/mastermind/static/media/background.229eb3f4.jpg"
   },
   {
     "revision": "07c4bbe14a6854b7fb8327eb18c268d6",
