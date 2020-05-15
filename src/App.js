@@ -11,13 +11,6 @@ import SecretInput from './components/SecretInput';
 const GameWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    135deg,
-    rgba(30, 87, 153, 1) 0%,
-    rgba(41, 137, 216, 1) 50%,
-    rgba(32, 124, 202, 1) 51%,
-    rgba(125, 185, 232, 1) 100%
-  );
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -104,7 +97,7 @@ function App() {
   return (
     <Wrapper className="App">
       <GlobalStyle />
-      <GameWrapper className="game">
+      <GameWrapper className="game background">
         <StartGameBtn
           setMm={setMm}
           setStarted={setStarted}
