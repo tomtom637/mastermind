@@ -20,15 +20,17 @@ const GameWrapper = styled.div`
   .congratulations {
     background: rgba(0, 0, 0, 0.2);
     padding: 20px;
+    width: 100%;
     border-radius: 5px;
     margin: auto;
     text-align: center;
     h1 {
       font-size: 20px;
+      font-weight: normal;
     }
     p {
       width: 100%;
-      margin-top: 20px;
+      margin-top: 10px;
     }
   }
 `;
@@ -122,7 +124,7 @@ function App() {
           ) : (
             <motion.div
               initial={{ scale: 0.2 }}
-              animate={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
               className="congratulations"
             >
               <h1>CONGRATULATIONS</h1>

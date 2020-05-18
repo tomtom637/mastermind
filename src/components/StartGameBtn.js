@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 import mastermind from '../utils/mastermind.js';
 
 const Button = styled(motion.button)`
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #eee;
   font-size: 20px;
   padding: 15px 0;
   background: rgba(0, 0, 0, 0.5);
-  color: #eee;
   border: none;
+  margin-bottom: 3px;
 `;
 
 function StartGameBtn(props) {

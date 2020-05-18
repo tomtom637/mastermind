@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
 
 body {
   background-color: #282c34;
-  color: white;
+  color: #eee;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
