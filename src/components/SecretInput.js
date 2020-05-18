@@ -7,17 +7,15 @@ function SecretInput({ started, mm, setNumGuess }) {
         {started &&
           mm.colors.map((val, index) => {
             return (
-              <div className="box-container">
-                <div
-                  className={`box img${val}`}
-                  key={index}
-                  onClick={() => {
-                    setNumGuess(prev => {
-                      return [...prev, val];
-                    });
-                  }}
-                />
-              </div>
+              <div
+                className={`box img${val}`}
+                key={index}
+                onClick={() => {
+                  setNumGuess(prev => {
+                    return [...prev, val];
+                  });
+                }}
+              />
             );
           })}
       </div>
