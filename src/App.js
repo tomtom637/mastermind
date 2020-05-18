@@ -7,6 +7,7 @@ import Secret from './components/Secret';
 import Guesses from './components/Guesses';
 import Answers from './components/Answers';
 import SecretInput from './components/SecretInput';
+import { motion } from 'framer-motion';
 
 const GameWrapper = styled.div`
   display: flex;
@@ -17,6 +18,9 @@ const GameWrapper = styled.div`
   max-width: 500px;
   margin: 0 auto;
   .congratulations {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 5px;
     margin: auto;
     text-align: center;
     h1 {
@@ -24,7 +28,7 @@ const GameWrapper = styled.div`
     }
     p {
       width: 100%;
-      margin-top: 50px;
+      margin-top: 20px;
     }
   }
 `;
@@ -116,10 +120,14 @@ function App() {
               <Answers answers={answers} won={won} />
             </>
           ) : (
-            <div className="congratulations">
+            <motion.div
+              initial={{ scale: 0.2 }}
+              animate={{ scale: 1.1 }}
+              className="congratulations"
+            >
               <h1>CONGRATULATIONS</h1>
               <p>You've won in {mm.count} guesses</p>
-            </div>
+            </motion.div>
           )}
         </div>
         <SecretInput started={started} mm={mm} setNumGuess={setNumGuess} />
