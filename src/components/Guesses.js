@@ -1,5 +1,4 @@
 import React from 'react';
-import uniqid from 'uniqid';
 import styled from 'styled-components';
 
 const GuessesContainer = styled.div`
@@ -15,11 +14,13 @@ const GuessesContainer = styled.div`
 function Guesses({ guesses, started, mm, numGuess }) {
   return (
     <GuessesContainer>
-      {guesses.map(guess => {
+      {guesses.map((guess, index) => {
         return (
-          <div className="row" key={uniqid()}>
-            {guess.map(singleGuess => {
-              return <div className={`box img${singleGuess}`} key={uniqid()} />;
+          <div className="row" key={index}>
+            {guess.map((singleGuess, singleIndex) => {
+              return (
+                <div className={`box img${singleGuess}`} key={singleIndex} />
+              );
             })}
           </div>
         );
@@ -32,7 +33,7 @@ function Guesses({ guesses, started, mm, numGuess }) {
                 className={
                   numGuess[index] ? `box img${numGuess[index]}` : 'box-small'
                 }
-                key={uniqid()}
+                key={index}
               />
             );
           })}

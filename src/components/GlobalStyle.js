@@ -14,6 +14,7 @@ body {
 }
 
 .game-body {
+    margin: 5px 0;
     display: flex;
     width: 100%;
     overflow-y: scroll;
@@ -24,8 +25,8 @@ body {
     }
   }
   .row {
-    margin-top: 18px;
-    margin-bottom: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     width: 100%;
     height: 35px;
     min-height: 35px;
@@ -46,7 +47,8 @@ body {
     height: 15px;
     border-radius: 50%;
     background-size: cover;
-    transform: scale(3.5);
+    transform: scale(3.5) translateY(-3px);
+
   }
   @media (min-width: 500px) {
     .box {

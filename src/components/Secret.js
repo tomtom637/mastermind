@@ -1,5 +1,4 @@
 import React from 'react';
-import uniqid from 'uniqid';
 import styled from 'styled-components';
 
 const SecretContainer = styled.div`
@@ -21,8 +20,8 @@ function Secret({ won, mm }) {
           className="row row-secret"
           style={{ background: 'rgba(0, 0, 0, 0.2)' }}
         >
-          {mm.secret.map(val => {
-            return <div className={`box img${val}`} key={uniqid()} />;
+          {mm.secret.map((val, index) => {
+            return <div className={`box img${val}`} key={index} />;
           })}
         </div>
       )}

@@ -20,10 +20,7 @@ const GameWrapper = styled.div`
     margin: auto;
     text-align: center;
     h1 {
-      width: 100%;
-      outline: 10px solid rgba(255, 255, 255, 0.5);
-      outline-offset: 20px;
-      font-size: 25px;
+      font-size: 20px;
     }
     p {
       width: 100%;
@@ -89,7 +86,7 @@ function App() {
     if (started) {
       animateScroll.scrollToBottom({
         containerId: `game-body`,
-        duration: 50,
+        duration: 80,
       });
     }
   }, [started, guesses]);

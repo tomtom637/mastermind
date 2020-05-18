@@ -1,27 +1,27 @@
 import React from 'react';
-import uniqid from 'uniqid';
-import styled from 'styled-components';
 
 function SecretInput({ started, mm, setNumGuess }) {
   return (
-    <div className="secret-input">
+    <>
       <div className="row">
         {started &&
-          mm.colors.map(val => {
+          mm.colors.map((val, index) => {
             return (
-              <div
-                className={`box img${val}`}
-                key={uniqid()}
-                onClick={() => {
-                  setNumGuess(prev => {
-                    return [...prev, val];
-                  });
-                }}
-              />
+              <div className="box-container">
+                <div
+                  className={`box img${val}`}
+                  key={index}
+                  onClick={() => {
+                    setNumGuess(prev => {
+                      return [...prev, val];
+                    });
+                  }}
+                />
+              </div>
             );
           })}
       </div>
-    </div>
+    </>
   );
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import uniqid from 'uniqid';
 import styled from 'styled-components';
 
 const AnswersContainer = styled.div`
@@ -17,11 +16,11 @@ const AnswersContainer = styled.div`
 function Answers({ answers, won }) {
   return (
     <AnswersContainer>
-      {answers.map(answer => {
+      {answers.map((answer, index) => {
         return (
-          <div className="row" key={uniqid()}>
-            {answer.map(singleAnswer => {
-              return <div className={singleAnswer} key={uniqid()} />;
+          <div className="row" key={index}>
+            {answer.map((singleAnswer, index) => {
+              return <div className={singleAnswer} key={index} />;
             })}
           </div>
         );
