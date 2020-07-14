@@ -45,10 +45,11 @@ body {
   .box {
     width: 15px;
     height: 15px;
+    max-width: 15px;
+    max-height: 15px;
     border-radius: 50%;
     background-size: cover;
     transform: scale(3.5) translateY(-3px);
-
   }
   @media (min-width: 500px) {
     .box {

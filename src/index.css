@@ -1,27 +1,36 @@
 .img1 {
-  background: url('img/char/octonauts/barnacles.png');
+  background: url('img/captain.svg');
 }
 .img2 {
-  background: url('img/char/octonauts/dashi.png');
-}
-.img3 {
-  background: url('img/char/octonauts/inkling.png');
+  background: url('img/dashi.svg');
 }
 .img4 {
-  background: url('img/char/octonauts/kwazii.png');
+  background: url('img/kwazii.svg');
 }
 .img5 {
-  background: url('img/char/octonauts/peso.png');
+  background: url('img/peso.svg');
 }
 .img6 {
-  background: url('img/char/octonauts/shellington.png');
-}
-.img7 {
-  background: url('img/char/octonauts/tunip.png');
+  background: url('img/shellington.svg');
 }
 .img8 {
-  background: url('img/char/octonauts/tweak.png');
+  background: url('img/tweak.svg');
 }
 .background {
   background: url('img/background.jpg');
+}
+
+.img1,
+.img2,
+.img3,
+.img4,
+.img5,
+.img6,
+.img7,
+.img8 {
+  transform: scale(4);
+  -webkit-backface-visibility: hidden;
+  -ms-transform: translateZ(0); /* IE 9 */
+  -webkit-transform: translateZ(0); /* Chrome, Safari, Opera */
+  transform: translateZ(0);
 }
