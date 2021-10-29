@@ -26,14 +26,14 @@ body {
   }
   .row {
     margin-top: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     width: 100%;
     height: 35px;
     min-height: 35px;
     background: rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: space-between;
-    padding: 0 25px;
+    padding: 25px 25px;
     align-items: center;
   }
   @media (min-width: 500px) {
