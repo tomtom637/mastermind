@@ -1,20 +1,20 @@
 .img1 {
-  background: url('img/captain.svg');
+  background: url('img/char/octonauts/barnacles.png');
 }
 .img2 {
-  background: url('img/dashi.svg');
+  background: url('img/char/octonauts/dashi.png');
 }
 .img4 {
-  background: url('img/kwazii.svg');
+  background: url('img/char/octonauts/kwazii.png');
 }
 .img5 {
-  background: url('img/peso.svg');
+  background: url('img/char/octonauts/peso.png');
 }
 .img6 {
-  background: url('img/shellington.svg');
+  background: url('img/char/octonauts/shellington.png');
 }
 .img8 {
-  background: url('img/tweak.svg');
+  background: url('img/char/octonauts/tweak.png');
 }
 .background {
   background: url('img/background.jpg');
