@@ -6,6 +6,7 @@ const GuessesContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  user-select: none;
   @media (min-width: 500px) {
     width: 75%;
   }
